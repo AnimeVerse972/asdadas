@@ -15,7 +15,8 @@ async def init_db():
         password=os.getenv("DB_PASSWORD"),
         database=os.getenv("DB_NAME"),
         host=os.getenv("DB_HOST"),
-        port=int(os.getenv("DB_PORT"))
+        port=int(os.getenv("DB_PORT")),
+        statement_cache_size=0
     )
 
     async with db_pool.acquire() as conn:
